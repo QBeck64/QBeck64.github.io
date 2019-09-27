@@ -4,7 +4,7 @@ body, html {
 }
 
 .backImage {
-    background-image: url(/images/beach_bridge.jpg);
+    background-image: url(images/beach_bridge.jpg);
 
     height: 100%;
 
