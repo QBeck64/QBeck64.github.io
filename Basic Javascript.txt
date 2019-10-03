@@ -1,0 +1,36 @@
+Javascript Loops.
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration 
+Do ... While
+
+{
+do
+  statement
+while (condition);
+}
+
+For Loops
+
+{
+for ([initialExpression]; [condition]; [incrementExpression])
+  statement
+}
+
+While
+{
+while (condition)
+  statement
+ }
+ 
+
+Conditional Statements
+https://www.w3schools.com/jsref/jsref_if.asp
+
+Same as basically any language out there.
+IF, ELSE, ELSE IF, SWITCHES
+
+
+Functions
+Super simple, just declare functions like any language
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions 
+
+
