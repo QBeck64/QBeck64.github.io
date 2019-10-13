@@ -1,0 +1,32 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.backImage {
+    background-image: url(../images/beach_bridge.jpg);
+
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.center {
+    width:700px; 
+            height:600px; 
+            position: absolute; 
+            background-color: whitesmoke; 
+            top: 50%; 
+            left: 50%; 
+            opacity: .9;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+}
+
+.title {
+    padding: 10px;
+    border-radius: 20px;
+    background: #3EADE0;
+}
