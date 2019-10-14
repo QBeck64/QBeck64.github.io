@@ -1,3 +1,75 @@
+// Event listeners, when checkbox is selected
+function displaySelect(checkbox) {
+    // Show duplicate selector when checkbox is selected
+    if (checkbox.checked == true) {
+        document.getElementById("duplicates").style.display = "block";
+    } else {
+        // When the checkbox is not selected, hide select and set value to 1
+        document.getElementById("duplicates").style.display = "none";
+        document.getElementById("duplicates").value = "1";
+    }
+}
+
+function getBaseCar() {
+    // Get all input values
+    var make = document.getElementById("make").value;
+    var model = document.getElementById("model").value;
+    var year = document.getElementById("year").value;
+    var count = document.getElementById("duplicates").value;
+
+    for (var i = 0; i < count; i++) {
+        //  create car object
+        var baseCar = new baseCarObject(make, model, year);
+        // Send car object to be made into array and saved to local storage
+        storeObject(baseCar);
+        loadStorage();
+    }
+}
+
+// Create a base car object
+function baseCarObject(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.production = localStorage.length;
+}
+
+//Store Base object to Local Storage
+function storeObject(baseCarObject) {
+    var carArray = { make: baseCarObject.make, model: baseCarObject.model, year: baseCarObject.year, production:baseCarObject.production };
+    console.log(carArray);
+
+    // Set array in localstorage
+    localStorage.setItem('baseCar' + baseCarObject.production, JSON.stringify(carArray));
+}
+
+//On page load or when called, display data from localstorage
+function loadStorage() {
+    for (var i = 0; i < localStorage.length; i++) {
+        var localData = localStorage.getItem(localStorage.key(i));
+
+        var divText = "<p>" + localData + "</p>";
+        document.getElementById("newFeatures").innerHTML += divText;
+    }
+} 
+
+// Clear local storage data
+function clearStorage() {
+    localStorage.clear();
+    loadStorage();
+}
+
+// Display base car data to user, allow for additional values to be set.
+
+
+
+
+
+
+
+
+
+
 // Get all user values
 function getParams() {
     var start = document.getElementById("startNum").value;

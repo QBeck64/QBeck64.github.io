@@ -3,18 +3,32 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width-device-width, initial-scale=1">
+        <link rel="stylesheet" href="..//styling/jsBasics.css">
         <script src="..//scripts/jsBasics.js"></script>
     </head>
-    <body>
-        <div>
-            <label id="startLabel" for="startNum">Enter starting number:</label>
-            <input type="text" id="startNum">
-            <label id="addByLabel" for="addBy">Increase starting number by:</label>
-            <input type="text" id="addBy">
-            <label id="stopAtLabel" for="stopAt">Stop adding once it is passed:</label>
-            <input type="text" id="stopAt">
-            <button type="button" id="loopButton" onclick="getParams()">Start Looping!</button>
-            <input type="text" id="result">
+    <body onload="loadStorage()">
+        <h1>Javascript Basics</h1>
+        <h2>Define the parameters of each basic car, remember you can create more than 1 base model if desired</h2>
+        <div class="center">
+            <div>
+                <label id="makeLabel" for="make">Enter Make:</label>
+                <input type="text" id="make">
+                <label id="modelLabel" for="model">Enter Model:</label>
+                <input type="text" id="model"><br><br>
+                <label id="yearLabel" for="year">Production Year:</label>
+                <input type="text" id="year"><br><br>
+                <label id="addtionalLabel" for="additionalCars">Add more than one vehicle</label>
+                <input type="checkbox" id="additonalCars" onchange="displaySelect(this)">
+                <select id="duplicates" style="display:none">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select><br><br>
+                <button type="button" id="baseCar" onclick="getBaseCar()">Order Base Vehicle</button><br><br>
+            </div>
+            <div id="newFeatures">
+                <button type="button" id="clearStorage" onclick="clearStorage()">Clear Order List</button>
+            </div>
         </div>
     </body>
 </html>
