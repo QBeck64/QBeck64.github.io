@@ -59,7 +59,19 @@ function clearStorage() {
     loadStorage();
 }
 
-// Display base car data to user, allow for additional values to be set.
+// Add image to body
+function addImage() {
+    document.getElementById("mainDiv").className = 'backImage';
+}
+
+// Remove image from body
+function removeImage() {
+    document.getElementById("mainDiv").classList.remove('backImage');
+}
+
+function toggleDiv() {
+    document.getElementById("centerDiv").classList.toggle('center');
+}
 
 
 

@@ -1,0 +1,8 @@
+Object functions - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects 
+Inheritence - https://codeburst.io/javascript-inheritance-25fe61ab9f85
+Properties - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+Methods - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+Basically just creating the object, such as var car = new vehicle();  (super easy peasy)
+
+Instantiation
+https://tylermcginnis.com/beginners-guide-to-javascript-prototype/ 

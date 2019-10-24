@@ -7,27 +7,33 @@
         <script src="..//scripts/jsBasics.js"></script>
     </head>
     <body onload="loadStorage()">
-        <h1>Javascript Basics</h1>
-        <h2>Define the parameters of each basic car, remember you can create more than 1 base model if desired</h2>
-        <div class="center">
-            <div>
-                <label id="makeLabel" for="make">Enter Make:</label>
-                <input type="text" id="make">
-                <label id="modelLabel" for="model">Enter Model:</label>
-                <input type="text" id="model"><br><br>
-                <label id="yearLabel" for="year">Production Year:</label>
-                <input type="text" id="year"><br><br>
-                <label id="addtionalLabel" for="additionalCars">Add more than one vehicle</label>
-                <input type="checkbox" id="additonalCars" onchange="displaySelect(this)">
-                <select id="duplicates" style="display:none">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select><br><br>
-                <button type="button" id="baseCar" onclick="getBaseCar()">Order Base Vehicle</button><br><br>
-            </div>
-            <div id="newFeatures">
-                <button type="button" id="clearStorage" onclick="clearStorage()">Clear Order List</button>
+        <div id="mainDiv">
+            <h1>Javascript Basics</h1>
+            <h2>Define the parameters of each basic car, remember you can create more than 1 base model if desired</h2>
+            <div class="center" id="centerDiv">
+                <div>
+                    <label id="makeLabel" for="make">Enter Make:</label>
+                    <input type="text" id="make">
+                    <label id="modelLabel" for="model">Enter Model:</label>
+                    <input type="text" id="model"><br><br>
+                    <label id="yearLabel" for="year">Production Year:</label>
+                    <input type="text" id="year"><br><br>
+                    <label id="addtionalLabel" for="additionalCars">Add more than one vehicle</label>
+                    <input type="checkbox" id="additonalCars" onchange="displaySelect(this)">
+                    <select id="duplicates" style="display:none">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select><br><br>
+                    <button type="button" id="baseCar" onclick="getBaseCar()">Order Base Vehicle</button><br><br>
+                </div>
+                <div id="newFeatures">
+                    <button type="button" id="clearStorage" onclick="clearStorage()">Clear Order List</button>
+                </div>
+                <button type="button" id="addImage" onclick="addImage()">Add Background Image</button>
+                <button type="button" id="removeImage" onclick="removeImage()">Remove Background Image</button>
+                <button type="button" id="toggleDiv" onclick="toggleDiv()">Toggle Form Div</button>
+
             </div>
         </div>
     </body>
