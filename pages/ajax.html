@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1">
+        <link rel="stylesheet" href="../styling/ajax.css">
+    </head>
+    <body onload="onLoad()">
+        <div id="weatherDiv">
+        </div>
+        <div id="inputCityDiv">
+            <div id="invalidCity" class="errorMsg" style="display: none;">
+                <strong>City name invalid, please try again</strong>
+            </div>
+           
+            <label for="newCity" id="cityLabel">Save City for Weather Info</label><br>
+            <input type="text" id="newCity">
+            <label for="unitSelect">Select preferred unit</label>
+            <select id="unitSelect">
+                <option value="imperial" selected>Fahrenheit</option>
+                <option value="metric">Celsius</option>
+            </select>
+            <button id="changeCity">Change City</button>
+        </div>
+        
+    </body>
+    <script src="..//scripts/ajax.js"></script>
+</html>
