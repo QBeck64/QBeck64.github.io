@@ -1,23 +1,11 @@
-.scale-1:hover {
-    transform: scale(.5);
-}
-
-.scale-2:active {
+.scale:active {
     transform: scale(1.5);
 }
 
-.rotate-1:hover {
-    transform: rotate(90deg);
-}
-
-.rotate-2:active {
+.rotate:active {
     transform: rotate(180deg);
 }
 
-.translate-1:hover {
-    transform: translate(-20px, 15%);
-}
-
-.translate-2:active {
+.translate:active {
     transform: translate(50px, 50%);
 }

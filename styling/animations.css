@@ -1,0 +1,32 @@
+.defaultClass {
+    margin: 5%;
+    position: relative;
+}
+
+.transform {
+    transform: rotate(300deg) scale(.75, .75) skewX(30deg);
+}
+
+.transition {
+    transition-delay: 1s;
+    transition-duration: 4s;
+}
+
+.animation {
+    animation-name: move;
+    animation-duration: 2s;
+}
+
+@keyframes move {
+    0%   {left:0px; top:0px;}
+    10%  {left:50px; top:25px;}
+    20%  {left:100px; top:75px;}
+    30%  {left:150px; top:100px;}
+    40%  {left:200px; top:125px;}
+    50%  {left:200px; top:100px;}
+    60%  {left:200px; top:75px;}
+    70%  {left:200px; top:50px;}
+    80% {left:200px; top:25px;}
+    90%  {left:100px; top:0px;}
+    100% {left:0px; top:0px;}
+}

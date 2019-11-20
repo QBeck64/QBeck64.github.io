@@ -112,6 +112,7 @@ function getWeather(city, unit) {
         var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
         var icon = document.createElement("img");
         icon.setAttribute("src", iconUrl);
+        icon.setAttribute("id", "weatherIcon");
         weatherList.appendChild(icon);
 
         document.getElementById("weatherDiv").appendChild(weatherList);

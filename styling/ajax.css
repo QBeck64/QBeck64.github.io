@@ -3,3 +3,13 @@
     background-color: #f44336;
     color: white;
 }
+  
+
+  .transitionIcon {
+    width: 100px;
+  height: 100px;
+  background: whitesmoke;
+  transition: width 2s;
+  opacity: .9;
+  border-radius: 20px;
+}

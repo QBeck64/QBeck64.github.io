@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width-device-width, initial-scale=1">
+            <link rel="stylesheet" href="../styling/animations.css">
+            <script src="../scripts/animations.js"></script>
+        </head>
+    </head>
+    <body>
+        <div>
+            <h2>Select CSS transform, animation, or transition class to see results!</h2>
+            <div>
+                <h3>Buttons add CSS classes to the image.</h3>
+                <button id="transform" onclick="setTransform()">Transform On/Off</button>
+                <button id="animation" onclick="setAnimation()">Animation On/Off</button>
+                <button id="transition" onclick="setTransition()">Transition On/Off</button>
+            </div>
+            <div>
+                <div id="animate">
+                    <img src="../images/rainCloud.png" alt="rainCloud" width="250px" id="testImage" class="defaultClass">
+                </div>
+            </div>
+            <div>
+                <h3>You can switch the image that is displayed</h3>
+                <button id="changeImg" onclick="setImg()">Change Src for image</button>
+            </div>
+           
+        </div>
+    </body>
+</html>
