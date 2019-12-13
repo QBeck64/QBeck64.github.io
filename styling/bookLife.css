@@ -1,0 +1,83 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+}
+
+.backImage {
+    background-image: url(../images/library.jpg);
+
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main {
+    background-color: rgba(255, 255, 255, .92);
+    height: inherit;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.contentDiv {
+    display: inline-block;
+    width: 100%;
+}
+
+.pageHead {
+    background-color: #99582a;
+    margin: 0 auto;
+}
+
+
+.navBar {
+    background-color: #ffe6a7;
+    float: left;
+    font-size: 16px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.navBar button {
+    background-color: #ffe6a7;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.navBar button:hover {
+    background-color: saddlebrown;
+    transition: .5s;
+}
+
+.dropdown {
+    float: left;
+    background-color: inherit;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.down {
+    transform: rotate(45deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+}
+
+.accountDiv {
+    background-color: black;
+}
