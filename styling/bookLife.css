@@ -45,7 +45,7 @@ h1 {
     width: 100%;
 }
 
-.navBar button {
+.navBtn {
     background-color: #ffe6a7;
     border: none;
     padding: 15px 32px;
@@ -54,7 +54,7 @@ h1 {
     cursor: pointer;
 }
 
-.navBar button:hover {
+.navBtn:hover {
     background-color: saddlebrown;
     transition: .5s;
 }

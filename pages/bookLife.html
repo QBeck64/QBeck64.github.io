@@ -14,13 +14,17 @@
                     </div>
                     <div class="navBar">
                         <div style="float:left;">
-                            <button id="bookShelf">BookShelf</button>
-                            <button id="bookSearch">Search</button>
+                            <button id="bookShelf" class="navBtn">BookShelf</button>
+                            <button id="bookSearch" class="navBtn">Search</button>
                         </div>
                         <div class="dropdown">
-                            <button>Account
+                            <button class="navBtn">Account
                                 <i class="arrow down"></i>
                             </button>
+                        </div>
+                        <div style="width:max-content">
+                            <input type="text" placeholder="Search by Book Title" name="search" id="searchInput">
+                            <button id="searchBtn" onclick="searchBooks()">Search</button>
                         </div>
                     </div>
                     <div class="accountDiv" id="account">
@@ -29,9 +33,20 @@
                     <div class="bookContent">
                         <div class="searchDiv" id="search">
                             <div class="shelf">
-                                <img src="http://books.google.com/books/content?id=DJsyrEuke0cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="bookCover">
-                                <img src="http://books.google.com/books/content?id=DJsyrEuke0cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="bookCover">
-                                <img src="http://books.google.com/books/content?id=DJsyrEuke0cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="bookCover">
+                                <div style="display: inline-block;"> 
+                                    <ul style="list-style-type:none">
+                                        <li><img src="http://books.google.com/books/content?id=V5s14nks9I8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="bookCover"></li>
+                                        <li><button>Add to Library</button>></li>
+                                    </ul>
+                                    </div>
+                               
+                                    <div style="display: inline-block;"> 
+                                        <ul style="list-style-type:none">
+                                            <li><img src="http://books.google.com/books/content?id=V5s14nks9I8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="bookCover"></li>
+                                            <li><button>Add to Library</button>></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="libraryDiv" id="library">
