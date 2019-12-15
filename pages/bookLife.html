@@ -5,7 +5,7 @@
         <meta name="viewport" content="width-device-width, initial-scale=1">
         <link rel="stylesheet" href="../styling/bookLife.css">
     </head>
-    <body>
+    <body onload="onLoad()">
         <div class="backImage">
             <div class="main">
                 <div class="contentDiv">
@@ -13,45 +13,50 @@
                         <h1 id="welcome">Welcome to Book Life</h1>
                     </div>
                     <div class="navBar">
-                        <div style="float:left;">
-                            <button id="bookShelf" class="navBtn">BookShelf</button>
-                            <button id="bookSearch" class="navBtn">Search</button>
-                        </div>
-                        <div class="dropdown">
-                            <button class="navBtn">Account
-                                <i class="arrow down"></i>
+                        <div style="float:left; padding-bottom: 15px;">
+                            <button id="bookShelf" class="navBtn" onclick="setNavigation('bookShelf')">
+                                BookShelf
+                            </button>
+                            <button id="bookSearch" class="navBtn" onclick="setNavigation('bookSearch')">
+                                Search
                             </button>
                         </div>
-                        <div style="width:max-content">
+                        <div class="dropdown">
+                            <button id="accountBtn" class="navBtn" onclick="setNavigation('account')">
+                                Account
+                                <i class="arrow down" id="arrow"></i>
+                            </button>
+                        </div>
+                        <div class="searchBar" id="searchBar">
                             <input type="text" placeholder="Search by Book Title" name="search" id="searchInput">
                             <button id="searchBtn" onclick="searchBooks()">Search</button>
                         </div>
                     </div>
-                    <div class="accountDiv" id="account">
-                        <input type="text" id="username">
-                    </div>
                     <div class="bookContent">
-                        <div class="searchDiv" id="search">
-                            <div class="shelf">
-                                <div style="display: inline-block;"> 
-                                    <ul style="list-style-type:none">
-                                        <li><img src="http://books.google.com/books/content?id=V5s14nks9I8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="bookCover"></li>
-                                        <li><button>Add to Library</button>></li>
-                                    </ul>
-                                    </div>
-                               
-                                    <div style="display: inline-block;"> 
-                                        <ul style="list-style-type:none">
-                                            <li><img src="http://books.google.com/books/content?id=V5s14nks9I8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="bookCover"></li>
-                                            <li><button>Add to Library</button>></li>
-                                        </ul>
-                                    </div>
+                        <div class="accountDiv" id="account">
+                            <div style="padding: 10px;">
+                                <label for="username">UserName: </label>
+                                <input type="text" id="username" placeholder="Enter your Name">
+                                <button id="saveName" onclick="saveName()">Save</button>
+                            </div>
+                            
+                            <div style="padding: 10px; display: inline-block;">
+                                <label for="totalBooks">Total Books in your Library: </label>
+                                <h3 id="totalBooks"></h3>
+                            </div>
+                            <div style="padding: 10px; display:inline-block;">
+                                <label for="totalRead">Total Books Read: </label>
+                                <div id="canvas_Div">
+                                    <canvas id="my_canvas" width="100" height="100"></canvas>
                                 </div>
                             </div>
+                            
+                        </div>
+                        <div class="searchDiv" id="search">                            
                         </div>
                         <div class="libraryDiv" id="library">
-    
                         </div>
+                    </div>                   
                     </div>
                 </div>              
             </div>

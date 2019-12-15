@@ -19,7 +19,7 @@ h1 {
 }
 
 .main {
-    background-color: rgba(255, 255, 255, .92);
+    background-color: rgba(255, 255, 255, .5);
     height: inherit;
     width: 60%;
     margin: 0 auto;
@@ -69,26 +69,36 @@ h1 {
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
+    transform: rotate(-135deg);
 }
 
 .down {
     transform: rotate(45deg);
 }
 
-.up {
-    transform: rotate(-135deg);
+.accountDiv {
+    display: none;
+    position: absolute;
+    background-color: #ffe6a7;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 20px;
+    left: 38%;
+    
 }
 
-.accountDiv {
-    background-color: black;
+.searchBar {
+    width: max-content;
     display: none;
+    padding-bottom: 5px;
 }
 
 /* Classes for displaying books and their backgrounds */
 
 .bookContent {
     width: 100%;
-    height: 100%;
+    height: 85%;
     overflow-y:auto
 }
 
@@ -97,9 +107,20 @@ h1 {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: block;
-    height: 300px;
+    height: 325px;
+    text-align: center;
 }
 
 .bookCover {
-    box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 9px 6px darkslategray;
+}
+
+.searchDiv {
+    display: none;
+}
+
+/* For animations and the canvas div */
+.canvasDiv {
+    width:140;
+    height:140;
 }
