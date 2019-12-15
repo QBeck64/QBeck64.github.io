@@ -11,6 +11,22 @@ function onLoad() {
 
 }
 
+/*******************************************************
+ * pageFlip() Plays audio
+ *******************************************************/
+function pageFlip() {
+    document.getElementById("pageFlip").play();
+}
+
+/*******************************************************
+ * clearLibrary() Clear the library from storage
+ *******************************************************/
+function clearLibrary() {
+    localStorage.removeItem('library');
+    getLibrary();
+    setAccount();
+}
+
 /*********************************************************
  * Function to show/hide div depending on which Button is 
  * clicked
@@ -21,12 +37,34 @@ function setNavigation(Btn) {
     var account = document.getElementById('account');
     var arrow = document.getElementById('arrow');
     var bookShelf = document.getElementById('library');
-    if (Btn == "account") {
-        if (account.style.display == "block")
-            account.style.display = "none";
-        else
-            account.style.display = "block";
 
+    // Buttons
+    var accountBtn = document.getElementById("accountBtn");
+    var searchBtn = document.getElementById("bookSearch");
+    var shelfBtn = document.getElementById("bookShelf");
+    if (Btn == "account") {
+        if (account.style.display == "block") {
+            account.style.display = "none";
+            accountBtn.classList.remove('btnClicked');
+        }
+        else {
+            // Run totalRead() function to display progress wheel
+            if (localStorage.getItem('library') != null) {
+                var library = JSON.parse(localStorage.getItem('library'));
+                // Now get the total number of Read books to pass to totalRead()
+                var read = 0;
+                for (var i = 0; i < library.length; i++) {
+                    if (library[i].read == 1)
+                        read++;
+                }
+                totalRead(read, library.length);
+            }
+            account.style.display = "block";
+            accountBtn.classList.add('btnClicked');
+            searchBtn.classList.remove('btnClicked');
+            shelfBtn.classList.remove('btnClicked');
+        }
+            
         // Change arrow on Account
         arrow.classList.toggle('down');
         // No need to hide any others for this one
@@ -36,16 +74,34 @@ function setNavigation(Btn) {
         // Show search content
         searchBar.style.display = "block";
         search.style.display = "block";
+        search.classList.add("btnClicked");
         // Hide the rest
+        account.style.display = "none";
         bookShelf.style.display = "none";
+
+        // change button color
+        accountBtn.classList.remove('btnClicked');
+        searchBtn.classList.add('btnClicked');
+        shelfBtn.classList.remove('btnClicked');
+
+        // Change height of bookContent class
+        document.getElementsByClassName('bookContent')[0].setAttribute("style", "height: 83%;");
     }
 
     if (Btn == 'bookShelf') {
          // Show BookShelf content
         bookShelf.style.display = "block";
            // Hide the rest
+        account.style.display = "none";
         search.style.display = "none";     
         searchBar.style.display = "none";
+        // change button color
+        accountBtn.classList.remove('btnClicked');
+        searchBtn.classList.remove('btnClicked');
+        shelfBtn.classList.add('btnClicked');
+
+        // Change height of bookContent class
+        document.getElementsByClassName('bookContent')[0].setAttribute("style", "height: 86%;");
     }
 }
 
@@ -66,21 +122,14 @@ function setAccount() {
     if (localStorage.getItem('bookLifeName') != null)
         // Set Name field
         document.getElementById('username').value = JSON.parse(localStorage.getItem('bookLifeName'));
+    
     if (localStorage.getItem('library') != null) {
         var library = JSON.parse(localStorage.getItem('library'));
         // Set the total books number
         document.getElementById('totalBooks').innerHTML = library.length;
-
-        // Now get the total number of Read books to pass to totalRead()
-        var read = 0;
-        for (var i = 0; i < library.length; i++) {
-            if (library[i].read == 1)
-                read++;
-        }
-
-        // Run totalRead() function to display progress wheel
-        totalRead(read, library.length);
     }
+    else
+        document.getElementById('totalBooks').innerHTML = "";
 }
 
 /*********************************************************
@@ -103,7 +152,7 @@ function progressSim() {
 	canv.clearRect(0, 0, cw, ch);
 	canv.lineWidth = 10;
 	canv.fillStyle = 'black';
-	canv.strokeStyle = "#09F";
+	canv.strokeStyle = 'saddlebrown';
 	canv.textAlign = 'center';
 	canv.fillText(al + '%', cw * .5, ch * .5, cw);
 	canv.beginPath();
@@ -199,9 +248,9 @@ function getBooks(title) {
             // If user decides to save we need to have tempm image stored in localStorage
             localStorage.setItem('tempBook' + i, JSON.stringify(tempBook));
             
-            bookDetails += '<div style="display: inline-block;"><ul style="list-style-type: none;">';
-            bookDetails += '<li><img src="' + image + '" class="bookCover"></li>';
-            bookDetails += '<li style="text-align: center;"><button onClick="saveBook(' + i + ')">Add to Library</button></li>';
+            bookDetails += '<div style="display: inline-block; padding-top: 40px; padding-right: 20px;"><ul style="list-style-type: none;">';
+            bookDetails += '<li><img src="' + image + '" class="bookCover" title="' + title + '" onclick="pageFlip()"></li>';
+            bookDetails += '<li style="text-align: center; padding-top: 10px;"><button onClick="saveBook(' + i + ')">Add to Library</button></li>';
             //close our div
             bookDetails += '</ul></div>';
             
@@ -244,6 +293,7 @@ function saveBook(tempId) {
             localStorage.setItem('library', JSON.stringify(library));
             // reload library
             getLibrary();
+            setAccount();
         }
         // If the book does exist already, inform the user
         else {
@@ -260,6 +310,7 @@ function saveBook(tempId) {
 
         // update library
         getLibrary();
+        setAccount();
     }
 }
 
@@ -272,15 +323,17 @@ function getLibrary() {
     document.getElementById("library").innerHTML = "";
 
     // Create Book objects from the library JSON object in Local Storage
+    if (localStorage.getItem('library') == null)
+        return;
     var library = JSON.parse(localStorage.getItem('library'));
 
     // Loop through the library
     var bookDetails = "";
     var count = 1;
     for (var i = 0; i < library.length; i++) {
-        bookDetails += '<div style="display: inline-block;"><ul style="list-style-type: none;">';
-        bookDetails += '<li><img src="' + library[i].image + '" class="bookCover"></li>';
-        bookDetails += '<li style="text-align: center;"><button onClick="markRead(' + i + ', ' + library[i].read + ')">';
+        bookDetails += '<div style="display: inline-block; padding-top: 40px; padding-right: 20px;"><ul style="list-style-type: none;">';
+        bookDetails += '<li><img src="' + library[i].image + '" class="bookCover" title="' + library[i].title + '" onclick="pageFlip()"></li>';
+        bookDetails += '<li style="text-align: center; padding-top: 10px;"><button onClick="markRead(' + i + ', ' + library[i].read + ')">';
         if (library[i].read == 0) {
             bookDetails += 'Mark Read</button ></li > ';
         }

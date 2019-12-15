@@ -6,6 +6,10 @@
         <link rel="stylesheet" href="../styling/bookLife.css">
     </head>
     <body onload="onLoad()">
+        <audio id="pageFlip">
+            <source src="../images/page-flip-01a.mp3" type="audio/ogg">
+            <source src="../images/page-flip-01a.mp3" type="audio/mp3">
+          </audio>
         <div class="backImage">
             <div class="main">
                 <div class="contentDiv">
@@ -27,34 +31,37 @@
                                 <i class="arrow down" id="arrow"></i>
                             </button>
                         </div>
-                        <div class="searchBar" id="searchBar">
+                        <div class="searchBar FadeIn" id="searchBar">
                             <input type="text" placeholder="Search by Book Title" name="search" id="searchInput">
                             <button id="searchBtn" onclick="searchBooks()">Search</button>
                         </div>
                     </div>
                     <div class="bookContent">
-                        <div class="accountDiv" id="account">
+                        <div class="accountDiv FadeIn" id="account">
                             <div style="padding: 10px;">
                                 <label for="username">UserName: </label>
                                 <input type="text" id="username" placeholder="Enter your Name">
                                 <button id="saveName" onclick="saveName()">Save</button>
                             </div>
                             
-                            <div style="padding: 10px; display: inline-block;">
-                                <label for="totalBooks">Total Books in your Library: </label>
+                            <div style="padding: 10px; display: inherit; text-align: center;">
+                                <h3>Total Books in your Library: </h3>
                                 <h3 id="totalBooks"></h3>
                             </div>
-                            <div style="padding: 10px; display:inline-block;">
-                                <label for="totalRead">Total Books Read: </label>
+                            <div style="padding: 10px; display:inherit; text-align: center;">
+                                <h3>Total Books Read: </h3>
                                 <div id="canvas_Div">
                                     <canvas id="my_canvas" width="100" height="100"></canvas>
                                 </div>
                             </div>
+                            <div style="padding: 10px; display:inherit; text-align: center;">
+                                <button id="clearLibrary" onclick="clearLibrary()">Clear Library</button>
+                            </div>
                             
                         </div>
-                        <div class="searchDiv" id="search">                            
+                        <div class="searchDiv FadeIn" id="search">                            
                         </div>
-                        <div class="libraryDiv" id="library">
+                        <div class="libraryDiv FadeIn" id="library">
                         </div>
                     </div>                   
                     </div>
